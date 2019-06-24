@@ -41,6 +41,8 @@ hr{
 	/*display: inline-block;*/
 	/*float: right;*/
 	color: #bbbbbb;
+	padding-left: 0.75em;
+	padding-right: 0.75em;
 }
 .preview_title{
 	/*display: inline-block;*/

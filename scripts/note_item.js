@@ -24,7 +24,7 @@ class Note{
 
 		let $previewTitle=$("<div>"+this.title+"</div>");
 		$previewTitle.addClass("preview_title");
-		let $deleteButton=$("<div>Delete</div>");
+		let $deleteButton=$("<div>&times;</div>");
 		$deleteButton.addClass("delete_button");
 		$previewBoxContainer.append($previewTitle);
 		$previewBoxContainer.append($deleteButton);
