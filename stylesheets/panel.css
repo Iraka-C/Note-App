@@ -1,0 +1,76 @@
+body{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	margin: 0em;
+	user-select: none;
+	font-family: Consolas, Monaco, Microsoft YaHei, serif;
+}
+
+.vertical_flex{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+}
+
+#panel_container{
+	position: absolute;
+	height: auto;
+	bottom: 1em;
+	top: 1em;
+	left: 1em;
+	right: 1em;
+}
+
+hr{
+	margin: 0em 0em 0.5em 0em;
+}
+
+.preview_title{
+	display: inline-block;
+}
+
+.preview_block{
+	padding: 0em 0em 0.5em 0em;
+}
+
+.delete_button{
+	/*display: inline-block;*/
+	float: right;
+	color: #bbbbbb;
+}
+
+#note_preview_spare{
+	display: inline-block;
+}
+#note_preview_new{
+	float: right;
+	color: #bbbbbb;
+}
+
+#note_preview_title{
+	text-align: center;
+	font-size: 150%;
+}
+
+#note_preview_container{
+	height: 100%;
+	width: 100%;
+}
+
+#note_preview_menu,#note_editor_menu{
+	margin-bottom: 0.5em;
+}
+
+#note_preview_list{
+	flex: auto;
+	overflow: scroll;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+::-webkit-scrollbar{
+	width: 0px;
+	background: transparent; /* make scrollbar transparent */
+}

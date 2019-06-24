@@ -1,0 +1,59 @@
+#textarea_wrapper{
+	position: relative;
+}
+
+#note_edit_container{
+	display: none;
+	flex-direction: column;
+	justify-content: flex-start;
+	height: 100%;
+}
+
+#note_editor_back{
+	display: inline-block;
+	color: #bbbbbb;
+}
+
+#note_editor_save{
+	float: right;
+	color: #bbbbbb;
+}
+
+#note_editor_title_wrapper{
+	text-align: center;
+}
+
+#note_editor_title{
+	display: inline-block;
+	outline: none;
+	border: none;
+	font-size: 150%;
+	background: transparent;
+	text-overflow: ellipsis;
+	font-family: Consolas, Monaco, Microsoft YaHei, serif;
+	width: 100%;
+	text-align: center;
+}
+
+#textarea_wrapper{
+	flex: 1;
+	overflow: scroll;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+#note_editor{
+	width: 100%;
+	padding: 0em;
+	resize: none;
+	border: none;
+	background: transparent;
+	font-family: Consolas, Monaco, Microsoft YaHei, serif;
+	font-size: 100%;
+	margin-top: 1em;
+}
+
+#note_editor:focus{
+	outline: none;
+	border: none;
+}

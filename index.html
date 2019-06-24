@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<link rel="stylesheet" type="text/css" href="./stylesheets/panel.css"/>
+		<link rel="stylesheet" type="text/css" href="./stylesheets/edit.css"/>
+		<script src="./scripts/jQuery.js"></script>
+		<script src="./scripts/autosize.min.js"></script>
+		<script src="./scripts/note_item.js"></script>
+		<script src="./scripts/notes.js"></script>
+		<script src="./scripts/panel_event.js"></script>
+		<title>Notes</title>
+	</head>
+	<body>
+		<div id="panel_container">
+			<div id="note_preview_container" class="vertical_flex">
+				<div id="note_preview_title">
+					Notes
+				</div>
+				<div id="note_preview_menu">
+					<!--div id="note_preview_spare">
+						?&nbsp;Spare
+					</div-->
+					<div id="note_preview_new">
+						+&nbsp;New note
+					</div>
+				</div>
+				<div id="note_preview_list">
+					<hr/>
+				</div>
+			</div>
+
+			<!-- This break is to be substituted by page flipping! -->
+			<!--hr/-->
+
+			<div id="note_edit_container">
+				<div id="note_editor_title_wrapper">
+					<input id="note_editor_title" spellcheck="false" value="title"/>
+				</div>
+				<div id="note_editor_menu">
+					<div id="note_editor_back">
+						&lt;&nbsp;Back
+					</div>
+					<!--div id="note_editor_save">
+						Save
+					</div-->
+				</div>
+				<div id="textarea_wrapper">
+					<!-- Auto height -->
+					<textarea id="note_editor" rows="1" placeholder="Write something here"  spellcheck="false"></textarea>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
