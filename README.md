@@ -20,3 +20,4 @@ TODOs
 4. Folder management.
 5. Undo/Redo override.
 6. Font size/style customize.
+7. Remaining local storage space warning.
