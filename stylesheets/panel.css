@@ -27,19 +27,27 @@ hr{
 	margin: 0em 0em 0.5em 0em;
 }
 
-.preview_title{
-	display: inline-block;
-}
-
 .preview_block{
 	padding: 0em 0em 0.5em 0em;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
 }
 
 .delete_button{
 	/*display: inline-block;*/
-	float: right;
+	/*float: right;*/
 	color: #bbbbbb;
 }
+.preview_title{
+	/*display: inline-block;*/
+	flex: auto;
+	min-width: 0px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
 
 #note_preview_spare{
 	display: inline-block;
