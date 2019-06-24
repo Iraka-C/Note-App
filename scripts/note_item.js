@@ -15,6 +15,7 @@ class Note{
 		this.content=("content" in jsonNote)?jsonNote.content:""; // Not Edited at first
 		this.remoteOrigin=("remoteOrigin" in jsonNote)?jsonNote.remoteOrigin:"";
 		this.status=("status" in jsonNote)?jsonNote.status:"private"; // is synchronized with the remote origin
+		this.isEdit=("isEdit" in jsonNote)?jsonNote.isEdit:false; // is this the file during last edit?
 
 		// View Initialization
 		this.$preview=$("<div><hr></div>");

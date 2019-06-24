@@ -3,8 +3,16 @@ let _N={
 	initPage:function(noteString){
 		let noteJson=this._.parseNote(noteString);
 		if(noteJson){ // There's item
+			let lastEdit=null;
 			for(let v of noteJson){
-				this._.addNewNote(new Note(v));
+				let noteItem=new Note(v);
+				if(noteItem.isEdit){
+					lastEdit=noteItem;
+				}
+				this._.addNewNote(noteItem);
+			}
+			if(lastEdit){ // Open the file not closed yet
+				this.shiftToEdit(lastEdit);
 			}
 		}
 	},
@@ -26,15 +34,18 @@ let _N={
 		let v=this._.nowEditingItem;
 		v.setTitle($("#note_editor_title").val());
 		v.setContent($("#note_editor").val());
+		// If is remote file, consider public => modified / discarded
 	},
 	// Note that the following functions set display to FLEX !!
 	shiftToEdit:function(noteItem){
 		this.setActiveNoteItem(noteItem);
+		noteItem.isEdit=true;
 		$("#note_preview_container").css({"display":"none"});
 		$("#note_edit_container").css({"display":"flex"});
 		autosize.update($("#note_editor")); // Trigger auto resize
 	},
 	shiftToPreview:function(){
+		this._.nowEditingItem.isEdit=false;
 		this.setActiveNoteItem(null);
 		$("#note_preview_container").css({"display":"flex"});
 		$("#note_edit_container").css({"display":"none"});
@@ -53,7 +64,8 @@ let _N={
 				title:v.title,
 				content:v.content,
 				remoteOrigin:v.remoteOrigin,
-				status:v.status
+				status:v.status,
+				isEdit:v.isEdit
 			});
 			break;
 
@@ -62,6 +74,10 @@ let _N={
 		default:
 		}
 		return JSON.stringify(itemsToSave);
+	},
+
+	isEditing:function(){
+		return this._.nowEditingItem?true:false;
 	},
 
 	// private modules

@@ -1,3 +1,25 @@
+var browser={
+	versions:function(){
+		var u=navigator.userAgent;
+		var app=navigator.appVersion;
+		return{
+			trident: u.indexOf('Trident') > -1,                           // IE core
+			presto:  u.indexOf('Presto') > -1,                            // opera core
+			webKit:  u.indexOf('AppleWebKit') > -1,                       // apple/google core
+			gecko:   u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, // firefox core
+			mobile:  !!u.match(/AppleWebKit.*Mobile.*/),                  // mobile device
+			ios:     !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),          // ios device
+			android: u.indexOf('Android') > -1 || u.indexOf('Adr') > -1,  // android device
+			iPhone:  u.indexOf('iPhone') > -1 ,                           // iPhone or QQHD browser
+			iPad:    u.indexOf('iPad') > -1,                              // iPad
+			webApp:  u.indexOf('Safari') == -1,                           // web app
+			weixin:  u.indexOf('MicroMessenger') > -1,                    // msg (WeChat)
+			qq:      u.match(/\sQQ/i) == " qq"                            // qq
+		};
+	}(),
+	language:(navigator.browserLanguage||navigator.language).toLowerCase()
+}
+
 $(()=>{ // Initialization
 	if (!storageAvailable("localStorage")){
 		// No local storage
@@ -7,8 +29,8 @@ $(()=>{ // Initialization
 
 	// Storages are all strings
 	// Use Stringify / Unstringify
-	initItems();
 	initEvents();
+	initItems();
 });
 
 function initItems(){
@@ -36,7 +58,11 @@ function initEvents(){
 	// Read System settings: fonts, interface when closed, ...
 
 	$(window).on("unload",event=>{
+		if(_N.isEditing()){
+			_N.saveLocalActiveNote();
+		}
 		localStorage.setItem("local_notes",_N.getAllNotesJSON());
+		// consider recover next time
 	});
 	/*$(window).on("resize",event=>{
 		setFontSize();
@@ -44,9 +70,8 @@ function initEvents(){
 }
 
 function setFontSize(){
-	if(document.body.clientHeight>document.body.clientWidth){ // Mobile environment
+	if(browser.versions.mobile||browser.versions.android||browser.versions.ios){ // Mobile environment
 		$("body").css("font-size","2.5em");
-		
 	}
 	else{
 		$("body").css("font-size","1.25em");
