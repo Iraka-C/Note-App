@@ -45,13 +45,11 @@ function initEvents(){
 
 function setFontSize(){
 	if(document.body.clientHeight>document.body.clientWidth){ // Mobile environment
-		$("body").css("font-size","3em");
-		console.log("vertical");
+		$("body").css("font-size","2.5em");
 		
 	}
 	else{
 		$("body").css("font-size","1.25em");
-		console.log("hor");
 	}
 }
 
