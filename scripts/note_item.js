@@ -18,13 +18,16 @@ class Note{
 
 		// View Initialization
 		this.$preview=$("<div><hr></div>");
-		this.$preview.addClass("preview_block");
+		let $previewBoxContainer=$("<div></div>");
+		$previewBoxContainer.addClass("preview_block");
+
 		let $previewTitle=$("<div>"+this.title+"</div>");
 		$previewTitle.addClass("preview_title");
 		let $deleteButton=$("<div>Delete</div>");
 		$deleteButton.addClass("delete_button");
-		this.$preview.append($previewTitle);
-		this.$preview.append($deleteButton);
+		$previewBoxContainer.append($previewTitle);
+		$previewBoxContainer.append($deleteButton);
+		this.$preview.append($previewBoxContainer);
 		this._initEvent();
 	}
 	
@@ -34,7 +37,7 @@ class Note{
 			return;
 		}
 		this.title=title;
-		this.$preview.children(".preview_title").text(title);
+		this.$preview.find(".preview_title").text(title);
 
 		// Online Content Manipulation
 		//this.isSynced=false;
@@ -69,7 +72,7 @@ class Note{
 		this.$preview.on("click",event=>{
 			_N.shiftToEdit(this);
 		});
-		this.$preview.children(".delete_button").on("click",event=>{
+		this.$preview.find(".delete_button").on("click",event=>{
 			alert("delete?");
 			_N.removeNote(this);
 		});

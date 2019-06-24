@@ -62,6 +62,7 @@ hr{
 #note_preview_title{
 	text-align: center;
 	font-size: 150%;
+	margin: 0.5em;
 }
 
 #note_preview_container{
