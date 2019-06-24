@@ -38,9 +38,9 @@ function initEvents(){
 	$(window).on("unload",event=>{
 		localStorage.setItem("local_notes",_N.getAllNotesJSON());
 	});
-	$(window).on("resize",event=>{
+	/*$(window).on("resize",event=>{
 		setFontSize();
-	});
+	});*/ // On smartphone browser, this changes when keyboard pops out
 }
 
 function setFontSize(){
