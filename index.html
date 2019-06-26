@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="./stylesheets/edit.css"/>
 		<script src="./scripts/jQuery.js"></script>
 		<script src="./scripts/autosize.min.js"></script>
+		<script src="./scripts/marked.min.js"></script>
 		<script src="./scripts/note_item.js"></script>
 		<script src="./scripts/notes.js"></script>
 		<script src="./scripts/panel_event.js"></script>
@@ -41,13 +42,20 @@
 					<div id="note_editor_back">
 						&lt;&nbsp;Back
 					</div>
-					<!--div id="note_editor_save">
-						Save
-					</div-->
+					<div id="note_editor_preview_markdown">
+						Preview
+					</div>
+				</div>
+				<div id="note_markdown_menu">
+					<div id="note_markdown_edit">
+						&lt;&nbsp;Edit
+					</div>
 				</div>
 				<div id="textarea_wrapper">
 					<!-- Auto height -->
 					<textarea id="note_editor" rows="1" placeholder="Write something here"  spellcheck="false"></textarea>
+					<div id="markdown_preview">
+					</div>
 				</div>
 			</div>
 		</div>

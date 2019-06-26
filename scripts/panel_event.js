@@ -43,13 +43,18 @@ function initEvents(){
 		let newNoteItem=new Note();
 		_N.addNewNote(newNoteItem);
 	});
-	/*$("#note_editor_save").on("click",event=>{ // save this note
-		_N.saveLocalActiveNote();
-	});*/
 	$("#note_editor_back").on("click",event=>{
 		_N.saveLocalActiveNote();
 		_N.shiftToPreview();
 	});
+	$("#note_editor_preview_markdown").on("click",event=>{ // preview this note
+		_N.shiftToMarkdownPreview();
+	});
+	$("#note_markdown_edit").on("click",event=>{ // back to edit
+		_N.shiftToMarkdownEdit();
+	});
+
+	// Editor settings
 	$("#textarea_wrapper").on("click",event=>{
 		$("#note_editor").focus();
 	});

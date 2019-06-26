@@ -9,12 +9,22 @@
 	height: 100%;
 }
 
+#note_markdown_menu{
+	display: none;
+}
+
 #note_editor_back{
 	display: inline-block;
 	color: #bbbbbb;
 }
 
-#note_editor_save{
+#note_markdown_edit{
+	display: inline-block;
+	color: #bbbbbb;
+}
+
+#note_editor_preview_markdown{
+	display: inline-block;
 	float: right;
 	color: #bbbbbb;
 }
@@ -57,4 +67,20 @@
 #note_editor:focus{
 	outline: none;
 	border: none;
+}
+
+#note_editor::-webkit-input-placeholder{
+	color: #bbbbbb;
+}
+#note_editor:-moz-placeholder{
+	color: #bbbbbb;
+}
+#note_editor::-moz-placeholder{
+	color: #bbbbbb;
+}
+#note_editor:-ms-input-placeholder{
+	color: #bbbbbb;
+}
+#note_editor::placeholder{
+	color: #bbbbbb;
 }

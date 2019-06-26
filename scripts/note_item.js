@@ -74,8 +74,10 @@ class Note{
 			_N.shiftToEdit(this);
 		});
 		this.$preview.find(".delete_button").on("click",event=>{
-			alert("delete?");
-			_N.removeNote(this);
+			if(confirm("Do you want to DELETE this note?")){
+				_N.removeNote(this);
+			}
+			return false; // prevent from entering the preview
 		});
 	}
 }

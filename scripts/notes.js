@@ -45,10 +45,32 @@ let _N={
 		autosize.update($("#note_editor")); // Trigger auto resize
 	},
 	shiftToPreview:function(){
-		this._.nowEditingItem.isEdit=false;
+		let nowActiveItem=this._.nowEditingItem;
+		nowActiveItem.isEdit=false;
+		nowActiveItem.$preview.detach();
+		// Move the just edited note to the first
+		$("#note_preview_list").prepend(nowActiveItem.$preview);
 		this.setActiveNoteItem(null);
 		$("#note_preview_container").css({"display":"flex"});
-		$("#note_edit_container").css({"display":"none"});
+		$("#note_edit_container").css({"display":"block"});
+	},
+	shiftToMarkdownPreview:function(){
+		$("#note_editor").css({"display":"none"});
+		$("#markdown_preview").css({"display":"block"});
+		// Buttons
+		$("#note_editor_menu").css({"display":"none"});
+		$("#note_markdown_menu").css({"display":"block"});
+		// Render // Async?
+		let mdHTML=marked($("#note_editor").val());
+		$("#markdown_preview").html(mdHTML);
+	},
+	shiftToMarkdownEdit:function(){
+		$("#note_editor").css({"display":"inline-block"});
+		$("#markdown_preview").css({"display":"none"});
+		// Buttons
+		$("#note_editor_menu").css({"display":"block"});
+		$("#note_markdown_menu").css({"display":"none"});
+		$("#markdown_preview").html("");
 	},
 	removeNote:function(noteItem){
 		this._.removeNote(noteItem);
