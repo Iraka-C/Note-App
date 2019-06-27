@@ -72,18 +72,8 @@ hr{
 	width: 100%;
 }
 
-/*#note_preview_menu,#note_editor_menu,#note_markdown_menu{
+#note_preview_menu,#note_editor_menu{
 	margin-bottom: 0.5em;
-}*/
-
-.menu_bar{
-	margin-bottom: 0.5em;
-}
-
-.menu_button{
-	/*border-radius: 25px;
-	border: 2px solid #bbbbbb;
-	padding: 0.1em 0.3em 0.1em 0.3em;*/
 }
 
 #note_preview_list{

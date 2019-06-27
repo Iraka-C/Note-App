@@ -4,31 +4,10 @@
 		<meta http-equiv="Content-Type" content="text/html">
 		<link rel="stylesheet" type="text/css" href="./stylesheets/panel.css"/>
 		<link rel="stylesheet" type="text/css" href="./stylesheets/edit.css"/>
-		<link rel="stylesheet" type="text/css" href="./stylesheets/markdown.css"/>
 		<script src="./scripts/jQuery.js"></script>
 		<script src="./scripts/autosize.min.js"></script>
 		<script src="./scripts/marked.min.js"></script>
 		<script src="./scripts/xss.js"></script>
-		<script type="text/x-mathjax-config">
-			MathJax.Hub.Config({
-				tex2jax:{
-					inlineMath:[["$","$"]],
-					displayMath:[['$$','$$']],
-					processEscapes:true
-				},
-				messageStyle:"none",
-				delayStartupUntil:"onload",
-				showMathMenu:false,
-				skipStartupTypeset:true, /* So it won't render everything at first */
-				inTabOrder:false,
-				CommonHTML:{
-					matchFontHeight:false,
-					mtextFontInherit:true
-				}
-			});
-			MathJax.Hub.processSectionDelay=0;
-		</script>
-		<script type="text/javascript" src="./scripts/mathjax/MathJax.js?config=TeX-AMS_HTML"></script>
 		<script src="./scripts/note_item.js"></script>
 		<script src="./scripts/notes.js"></script>
 		<script src="./scripts/panel_event.js"></script>
@@ -38,13 +17,13 @@
 		<div id="panel_container">
 			<div id="note_preview_container" class="vertical_flex">
 				<div id="note_preview_title">
-					$x_i$
+					Notes
 				</div>
-				<div id="note_preview_menu" class="menu_bar">
-					<!--div id="note_preview_spare" class="menu_button">
+				<div id="note_preview_menu">
+					<!--div id="note_preview_spare">
 						?&nbsp;Spare
 					</div-->
-					<div id="note_preview_new" class="menu_button">
+					<div id="note_preview_new">
 						New note
 					</div>
 				</div>
@@ -60,16 +39,16 @@
 				<div id="note_editor_title_wrapper">
 					<input id="note_editor_title" spellcheck="false" value="title"/>
 				</div>
-				<div id="note_editor_menu" class="menu_bar">
-					<div id="note_editor_back" class="menu_button">
+				<div id="note_editor_menu">
+					<div id="note_editor_back">
 						&lt;&nbsp;Back
 					</div>
-					<div id="note_editor_preview_markdown" class="menu_button">
+					<div id="note_editor_preview_markdown">
 						Preview
 					</div>
 				</div>
-				<div id="note_markdown_menu" class="menu_bar">
-					<div id="note_markdown_edit" class="menu_button">
+				<div id="note_markdown_menu">
+					<div id="note_markdown_edit">
 						&lt;&nbsp;Edit
 					</div>
 				</div>

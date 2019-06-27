@@ -64,7 +64,6 @@ let _N={
 		let mdHTML=marked($("#note_editor").val()); // parse markdown source into HTML
 		let filteredHTML=filterXSS(mdHTML); // filter XSS attack in HTML
 		$("#markdown_preview").html(filteredHTML);
-		MathJax.Hub.Queue(["Typeset",MathJax.Hub,"markdown_preview"]); // Show equations
 	},
 	shiftToMarkdownEdit:function(){
 		$("#note_editor").css({"display":"inline-block"});

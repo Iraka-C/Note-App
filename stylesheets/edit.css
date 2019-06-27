@@ -61,6 +61,7 @@
 	background: transparent;
 	font-family: Consolas, Monaco, Microsoft YaHei, serif;
 	font-size: 100%;
+	margin-top: 1em;
 }
 
 #note_editor:focus{
