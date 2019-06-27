@@ -4,8 +4,19 @@ A small notebook on webpage using WebStorage. Fits the layout of smartphones.
 
 You can try it [Here](https://iraka-c.github.io/Note-App/index.html).
 
+Using 3<sup>rd</sup>-party repos:
+
+* [Autosize](http://www.jacklmoore.com/autosize/) for auto resizing the `<textarea>` in editor.
+* [Marked.js](https://marked.js.org/) for markdown support.
+* [JSXSS](https://jsxss.com/en/index.html) for XSS attack filtering.
+
+## Version 2019.06.27
+
+Filtered XSS attack in markdown file.
+
 Version 2019.06.26
 -----
+
 New functions:
 1. Newly viewed note will be placed at the top. (but not next time when reopen the window)
 2. Add markdown preview with marked.js.
