@@ -43,7 +43,17 @@ let _N={
 		$("#note_preview_container").css({"display":"none"});
 		$("#note_edit_container").css({"display":"flex"});
 		autosize.update($("#note_editor")); // Trigger auto resize
+
+		if(noteItem.title.match(/^\s*#/)){ // markdown file
+			$("#note_editor_preview_markdown").css("display","block");
+		}
+		else{ // normal file
+			$("#note_editor_preview_markdown").css("display","none");
+		}
+		//this.setNowNoteMarkdown(this._.nowEditingItem.isMarkdown); // Although reset itself...
 	},
+
+	// Previews
 	shiftToPreview:function(){
 		let nowActiveItem=this._.nowEditingItem;
 		nowActiveItem.isEdit=false;
@@ -78,6 +88,18 @@ let _N={
 		this._.removeNote(noteItem);
 		// online issues
 	},
+	/*setNowNoteMarkdown:function(isMarkdown){
+		this._.nowEditingItem.isMarkdown=isMarkdown;
+		if(isMarkdown){
+			$("#note_editor_markdown_sign").css("display","block");
+		}
+		else{
+			$("#note_editor_markdown_sign").css("display","none");
+		}
+	},
+	isNowNoteMarkdown:function(){
+		return this._.nowEditingItem.isMarkdown;
+	},*/
 
 	getAllNotesJSON:function(){
 		let itemsToSave=[];
@@ -89,7 +111,8 @@ let _N={
 				content:v.content,
 				remoteOrigin:v.remoteOrigin,
 				status:v.status,
-				isEdit:v.isEdit
+				isEdit:v.isEdit,
+				isMarkdown:v.isMarkdown
 			});
 			break;
 

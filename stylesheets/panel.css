@@ -36,6 +36,9 @@ hr{
 	min-width: 0px;
 	overflow: hidden;
 }
+.md_title{
+	color: #bbbbbb;
+}
 
 .delete_button{
 	/*display: inline-block;*/

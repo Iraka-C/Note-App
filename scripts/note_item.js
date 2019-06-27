@@ -16,13 +16,22 @@ class Note{
 		this.remoteOrigin=("remoteOrigin" in jsonNote)?jsonNote.remoteOrigin:"";
 		this.status=("status" in jsonNote)?jsonNote.status:"private"; // is synchronized with the remote origin
 		this.isEdit=("isEdit" in jsonNote)?jsonNote.isEdit:false; // is this the file during last edit?
+		this.isMarkdown=("isMarkdown" in jsonNote)?jsonNote.isMarkdown:false; // is this markdown file?
 
 		// View Initialization
 		this.$preview=$("<div><hr></div>");
 		let $previewBoxContainer=$("<div></div>");
 		$previewBoxContainer.addClass("preview_block");
 
-		let $previewTitle=$("<div>"+this.title+"</div>");
+		
+		let $previewTitle=$("<div></div>");
+		if(this.title.match(/^\s*#\s*/)){ // a markdown
+			$previewTitle.text(this.title.replace(/^\s*#\s*/,"")); // prevent XSS attack
+			$previewTitle.prepend("<span class='md_title'>#&nbsp;</span>");
+		}
+		else{
+			$previewTitle.text(this.title);
+		}
 		$previewTitle.addClass("preview_title");
 		let $deleteButton=$("<div>&times;</div>");
 		$deleteButton.addClass("delete_button");
@@ -38,7 +47,15 @@ class Note{
 			return;
 		}
 		this.title=title;
-		this.$preview.find(".preview_title").text(title);
+
+		let $p=this.$preview.find(".preview_title");
+		if(title.match(/^\s*#\s*/)){ // a markdown
+			$p.text(title.replace(/^\s*#\s*/,"")); // prevent XSS attack
+			$p.prepend("<span class='md_title'>#&nbsp;</span>");
+		}
+		else{
+			$p.text(title);
+		}
 
 		// Online Content Manipulation
 		//this.isSynced=false;
@@ -67,6 +84,10 @@ class Note{
 		if(this.remoteOrigin){
 			// Do sth
 		}
+	}
+
+	setMarkdown(isMarkdown_){
+		this.isMarkdown=isMarkdown_;
 	}
 
 	_initEvent(){

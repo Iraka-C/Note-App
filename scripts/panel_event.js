@@ -60,9 +60,32 @@ function initEvents(){
 	});
 	autosize($("#note_editor"));
 	setFontSize();
+	$("#note_editor_title").on("input",event=>{
+		if($("#note_editor_title").val().match(/^\s*#/)){ // markdown file
+			$("#note_editor_preview_markdown").css("display","block");
+		}
+		else{ // normal file
+			$("#note_editor_preview_markdown").css("display","none");
+		}
+	});
+	$("#note_editor_title").on("blur",event=>{ // delete useless blanks
+		$("#note_editor_title").val(
+			$("#note_editor_title").val()
+				.replace(/^\s*/,"")
+				.replace(/\s*$/,"")
+				.replace(/\s+/g," ")
+		);
+	});
+
 	// Read System settings: fonts, interface when closed, ...
 
 	$(window).on("unload",event=>{
+		$("#note_editor_title").val( // delete useless blanks
+			$("#note_editor_title").val()
+				.replace(/^\s*/,"")
+				.replace(/\s*$/,"")
+				.replace(/\s+/g," ")
+		);
 		if(_N.isEditing()){
 			_N.saveLocalActiveNote();
 		}

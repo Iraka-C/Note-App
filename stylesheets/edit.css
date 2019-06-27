@@ -31,6 +31,9 @@
 
 #note_editor_title_wrapper{
 	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
 }
 
 #note_editor_title{

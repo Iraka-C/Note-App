@@ -9,10 +9,13 @@ Using 3<sup>rd</sup>-party repos:
 * [Autosize](http://www.jacklmoore.com/autosize/) for auto resizing the `<textarea>` in editor.
 * [Marked.js](https://marked.js.org/) for markdown support.
 * [JSXSS](https://jsxss.com/en/index.html) for XSS attack filtering.
+* [MathJax](https://www.mathjax.org/) for (async) equation rendering
 
 ## Version 2019.06.27
 
-Filtered XSS attack in markdown file.
+1. Filtered XSS attack in markdown file.
+2. Add math equation support (\$...\$, \$\$...\$\$)
+3. Add Markdown switch (by adding a # at the start of the title)
 
 Version 2019.06.26
 -----
