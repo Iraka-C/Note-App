@@ -41,3 +41,22 @@
 .MathJax:focus,.mjx-chtml:focus,.MathJax_SVG:focus{
 	outline: none;
 }
+
+#markdown_preview table{
+	width: 100%;
+	border-collapse: collapse;
+	/*border: 2px solid #000000;*/
+
+}
+
+#markdown_preview thead{
+	background-color: #00000018;
+}
+
+#markdown_preview td,th{
+	border: 1px solid #00000040;
+}
+
+#markdown_preview img{
+	max-width: 100%;
+}
