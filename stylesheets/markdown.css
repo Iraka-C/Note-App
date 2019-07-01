@@ -57,6 +57,10 @@
 	border: 1px solid #00000040;
 }
 
+#markdown_preview th{
+	text-align: center;
+}
+
 #markdown_preview img{
 	max-width: 100%;
 }
